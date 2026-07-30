@@ -1,29 +1,21 @@
 use std::io;
 
 fn main() {
-  let mut arr = [1.1, 1.1, 1.1, 1.1, 1.1];
   let mut s1 = String::new();
   let mut s2 = String::new();
   let mut s3 = String::new();
   let mut s4 = String::new();
   let mut s5 = String::new();
-  let mut s6 = String::new();
+  let mut arr: [usize; 5] = [0; 5];
   io::stdin().read_line(&mut s1).expect("err");
   io::stdin().read_line(&mut s2).expect("err");
   io::stdin().read_line(&mut s3).expect("err");
   io::stdin().read_line(&mut s4).expect("err");
   io::stdin().read_line(&mut s5).expect("err");
-  io::stdin().read_line(&mut s6).expect("err");
-  let d1: f64 = s1.trim().parse().expect("err");
-  let d2: f64 = s2.trim().parse().expect("err");
-  let d3: f64 = s3.trim().parse().expect("err");
-  let d4: f64 = s4.trim().parse().expect("err");
-  let d5: f64 = s5.trim().parse().expect("err");
-  let d6: usize = s6.trim().parse().expect("err");
-  arr[0] = d1;
-  arr[1] = d2;
-  arr[2] = d3;
-  arr[3] = d4;
-  arr[4] = d5;
-  println!("{:.2}", arr[d6]);
+  arr[0] = s1.trim().parse().expect("err");
+  arr[1] = s2.trim().parse().expect("err");
+  arr[2] = s3.trim().parse().expect("err");
+  arr[3] = s4.trim().parse().expect("err");
+  arr[4] = s5.trim().parse().expect("err");
+  println!("{0}, {1}, {2}, {3}, {4}", arr[arr[0]], arr[arr[1]], arr[arr[2]], arr[arr[3]], arr[arr[4]]);
 }
