@@ -7,5 +7,5 @@ fn main() {
   io::stdin().read_line(&mut s2).expect("err");
   let c1: f64 = s1.trim().parse().expect("err");
   let c2: f64 = s2.trim().parse().expect("err");
-  println!("Вероятность того, что чайник прослужит меньше двух лет, но больше года равна: {:.2}", c2 - c1);
+  println!("{:.3}", c1 * (c2 / 100.0));
 }
