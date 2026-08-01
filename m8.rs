@@ -10,18 +10,15 @@ fn main() {
   let mut s3 = String::new();
   io::stdin().read_line(&mut s3).expect("err");
   let mut c3: i64 = s3.trim().parse().expect("err");
-  let mut s4 = String::new();
-  io::stdin().read_line(&mut s4).expect("err");
-  let mut c4: i64 = s4.trim().parse().expect("err");
-  let mut s5 = String::new();
-  io::stdin().read_line(&mut s5).expect("err");
-  let mut c5: i64 = s5.trim().parse().expect("err");
-  let mut s6 = String::new();
-  io::stdin().read_line(&mut s6).expect("err");
-  let mut c6: i64 = s6.trim().parse().expect("err");
-  if ((c3 - c1) * (c6 - c2) - (c5 - c1) * (c4 - c2) == 0) {
-    println!("Точки коллинеарны");
+  if (c1 == c2 && c2 == c3) {
+    println!("Числа {0}, {1} и {2} образуют равносторонний треугольник", c1, c2, c3);
+  } else if ((c1 == c2 && c2 != c3) || (c1 == c3 && c2 != c3) || (c2 == c3 && c1 != c3)) {
+    println!("Числа {0}, {1} и {2} образуют равнобедренный треугольник", c1, c2, c3);
   } else {
-    println!("Точки не коллинеарны");
+    if ((c1 + c2 > c3) && (c1 + c3 > c2) && (c2 + c3 > c1)) {
+      println!("Числа {0}, {1} и {2} образуют разносторонний треугольник", c1, c2, c3);
+    } else {
+      println!("Числа {c1}, {c2} и {c3} не образуют треугольник");
+    }
   }
 }
