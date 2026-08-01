@@ -1,14 +1,11 @@
 use std::io;
 
 fn main() {
-  let mut s = String::new();
-  io::stdin().read_line(&mut s).expect("err");
-  let d: i64 = s.trim().parse().expect("err");
-  let mut arr = [1, 2, 3, 4, 5];
-  arr[0] += d;
-  arr[1] -= d;
-  arr[2] *= d;
-  arr[3] /= d;
-  arr[4] %= d;
-  println!("{:?}", arr);
+  let mut s1 = String::new();
+  io::stdin().read_line(&mut s1).expect("err");
+  let mut c1: u32 = s1.trim().parse().expect("err");
+  let mut s2 = String::new();
+  io::stdin().read_line(&mut s2).expect("err");
+  let mut c2: u8 = s2.trim().parse().expect("err");
+  println!("{}", c1 << c2);
 }
