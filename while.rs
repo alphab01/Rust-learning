@@ -3,19 +3,23 @@ use std::io;
 fn main() {
   let mut s1 = String::new();
   io::stdin().read_line(&mut s1).expect("err");
-  let mut s: f64 = 0.0;
-  while true {
-    let mut s2 = String::new();
-    io::stdin().read_line(&mut s2).expect("err");
-    if (s1.trim() == s2.trim()) {
-      break;
+  let mut c1: i64 = s1.trim().parse().expect("err");
+  print!("Число {} состоит из цифр: ", c1);
+  let mut c: i64 = 0;
+  let mut c2: i64 = c1;
+  while (c1 != 0) {
+    c1 /= 10;
+    c += 1;
+  }
+  let mut i: i64 = 1;
+  while (i <= c) {
+    if (i != c) {
+      print!("{} ", (c2 / (10_u32.pow((c - i) as u32)) as i64)%10 as i64);
+      i += 1;
     } else {
-      let c: f64 = match s2.trim().parse() {
-        Ok(num) => num,
-        Err(_) => continue,
-      };
-      s += c;
+      print!("{}\n", (c2 / (10_u32.pow((c - i) as u32)) as i64)%10 as i64);
+      i += 1;
     }
   }
-  println!("{s:.1}");
+  println!("Число {0} является {1} значным", c2, c);
 }
