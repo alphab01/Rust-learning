@@ -1,23 +1,30 @@
 use std::io;
 
 fn main() {
-  let mut s1 = String::new();
-  io::stdin().read_line(&mut s1).expect("err");
-  let mut c1: u8 = s1.trim().parse().expect("err");
-  let mut s2 = String::new();
-  io::stdin().read_line(&mut s2).expect("err");
-  let mut c2: u8 = s2.trim().parse().expect("err");
-  let mut p: f64 = 0.0;
-  let mut d: f64 = 0.0;
-  for i in 1..=6 {
-    for j in 1..=6 {
-      if (i + j == c1) {
-        p += 1.0;
-      }
-      if (i + j == c1 && (i == c2 || j == c2)) {
-        d += 1.0;
+  println!(" x  y  z");
+  for x in -10..=10 {
+    for y in -3..=3 {
+      for z in 2..=6 {
+        if (4 * x - 2 * y + 3 * z == 20 && x * y * z < 15 && x * x + y * y + z * z > 8) {
+          if (x < 0 && y < 0 && z < 0) {
+            println!("{x} {y} {z}");
+          } else if (x >= 0 && y < 0 && z < 0) {
+            println!(" {x} {y} {z}");
+          } else if (x < 0 && y >= 0 && z < 0) {
+            println!("{x}  {y} {z}");
+          } else if (x < 0 && y < 0 && z >= 0) {
+            println!("{x} {y}  {z}");
+          } else if (x >= 0 && y >= 0 && z < 0) {
+            println!(" {x}  {y} {z}");
+          } else if (x >= 0 && y < 0 && z >= 0) {
+            println!(" {x} {y}  {z}");
+          } else if (x < 0 && y >= 0 && z >= 0) {
+            println!("{x}  {y}  {z}");
+          } else if (x >= 0 && y >= 0 && z >= 0) {
+            println!(" {x}  {y}  {z}");
+          }
+        }
       }
     }
   }
-  println!("{:.2}", d/p);
 }
